@@ -1,24 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Todolist from "./components/Todolist";
+import Menu from "./components/Menu";
+import DeleteButton from "./components/DeleteButton";
+import FormComp from "./components/FormComp";
+import { BsPlusLg } from "react-icons/bs";
 
 function App() {
+  const [tasks, setTasks] = useState([]);
+  const [taskModal, setTaskModal] = useState(false);
+  const [modalButton, setModalButton] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <main className="d-flex flex-column align-items-center">
+      <Menu tasks={tasks} setTasks={setTasks} />
+      <Todolist tasks={tasks} setTasks={setTasks} />
+      {tasks.length > 0 ? (
+        <DeleteButton tasks={tasks} setTasks={setTasks} />
+      ) : (
+        "There is no tasks"
+      )}
+      {taskModal ? (
+        <FormComp
+          tasks={tasks}
+          setTasks={setTasks}
+          setTaskModal={setTaskModal}
+          setModalButton={setModalButton}
+        />
+      ) : (
+        ""
+      )}
+      {modalButton ? (
+        <button
+          className="modal-btn"
+          onClick={() => {
+            setTaskModal(true);
+            setModalButton(false);
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Add new task
+        </button>
+      ) : (
+        <button
+          className="modal-btn"
+          onClick={() => {
+            setTaskModal(false);
+            setModalButton(true);
+          }}
+        >
+          Discard Task
+        </button>
+      )}
+    </main>
   );
 }
 

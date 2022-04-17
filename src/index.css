@@ -1,13 +1,174 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+main {
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+}
+.tasks-container {
+  width: 90%;
+  max-width: 1200px;
+}
+.task-element {
+  border: 2px rgb(105, 105, 228) solid;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 15px;
+}
+.border-done {
+  border: 2px lightgrey solid;
+}
+.task-check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  font-size: 1.7rem;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+.done-false {
+  color: lightgrey;
+}
+.done-true {
+  color: lightgrey;
+}
+.done-false:hover {
+  background-color: rgb(105, 105, 228);
+  color: lightgrey;
+}
+.done-true:hover {
+  background-color: lightgrey;
+  color: white;
+}
+.task-check:hover {
+  cursor: pointer;
+}
+.task-info {
+  margin: 0 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.task-info h4 {
+  margin-bottom: 0;
+}
+.task-info p {
+  text-align: right;
+  margin-bottom: 0;
+}
+.task-info-done {
+  color: lightgrey;
+  text-decoration: line-through;
+}
+.delete-btn {
+  background-color: transparent;
+  border: 2px solid rgb(105, 105, 228);
+  border-radius: 15px;
+  height: 45px;
+  background-color: rgb(105, 105, 228);
+  color: white;
+}
+.menu-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+/* .app-logo{} */
+.user-icon {
+  border: 1px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+}
+
+.modal-btn {
+  padding: 20px;
+  position: absolute;
+  bottom: 50px;
+  right: 30px;
+  border-radius: 20px;
+  background-color: transparent;
+  border: none;
+  background: rgb(105, 105, 228);
+  color: white;
+  font-size: 1.5rem;
+}
+.modal-btn:hover {
+  background-color: white;
+  color: rgb(105, 105, 228);
+  border: 2px solid rgb(105, 105, 228);
+}
+
+.task-form {
+  background-color: white;
+  border: 2px solid rgb(105, 105, 228);
+  border-radius: 15px;
+  position: absolute;
+  bottom: 150px;
+  right: 30px;
+  width: 90%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+}
+.task-form input {
+  border: 2px solid rgb(105, 105, 228);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.task-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.task-form .task-desc {
+  border: 2px solid rgb(105, 105, 228);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  min-height: 100px;
+}
+.task-date-row {
+  display: flex;
+  justify-content: space-between;
+}
+.date-checkbox-row {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.date-checkbox-row input {
+  margin: 0;
+}
+.react-datepicker-wrapper {
+  max-width: 200px;
+  text-align: right;
+}
+.task-form button {
+  background-color: rgb(105, 105, 228);
+}
+.task-form button:hover {
+  background-color: white;
+  color: rgb(105, 105, 228);
+  border: 1px solid rgb(105, 105, 228);
+}
+.crossed {
+  text-decoration: line-through;
+  color: lightgrey;
 }
